@@ -1,10 +1,17 @@
+
 .terraform/
 terraform-log*
 *.tfplan
-.DS_Store
-getter*/
-kubeconfig*
 .terraform.lock*
+
+# git ignore for kubernetes
+kubeconfig*
 **/kubeconfig
+
+#Keys
 *_key
 *.bkp
+
+#Temps
+.DS_Store
+getter*/
