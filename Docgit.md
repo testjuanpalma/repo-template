@@ -4,7 +4,7 @@
 
 ## About 
 
-GitHub is a cloud-based service that helps a different teams to store their codes
+
 
 ## How to install in Mac
 
