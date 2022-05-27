@@ -46,7 +46,7 @@ In your terminal run the next command
 
 5. Run SSH command to generate de .pub key
 ````
-    ssh-keygen -t ed25519 -C "Your@email.com"
+    ssh-keygen -t rsa -b 4096 -C "Your@email.com"
 ````
 * During this command terminal required a file destination, that could be in default (~/.ssh/) so only click enter, then you have to type a passphrase and finally the terminal show as the key and the file name
 
@@ -61,18 +61,18 @@ In your terminal run the next command
     Host *
         AddKeysToAgent yes
         UseKeychain yes
-        IdentityFile ~/.ssh/id_ed25519 
+        IdentityFile ~/.ssh/id_rsa 
 ````
-* Note: Check the .pub name, to default is called id_ed25519, but maybe it's different
+* Note: Check the .pub name, to default is called id_rsa, but maybe it's different
 
 8. Add the private key to the ssh-agent
 ````
-    ssh-add -K ~/.ssh/id_ed25519
+    ssh-add -K ~/.ssh/id_rsa
 ````
 
 9. Then use the pbcopy comand to copy in your clipboard 
 ````
-    pbcopy < ~/.ssh/id_ed25519.pub
+    pbcopy < ~/.ssh/id_rsa.pub
 ````
 
 10. In GitHub WebPage, go to your presonal settings -> access -> SSH and GPG keys -> New SSH Key. In this step type a title like "MacBook Yape" and paste your key. 
