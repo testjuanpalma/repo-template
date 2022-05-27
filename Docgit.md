@@ -1,4 +1,4 @@
-# Activate verification commits in Mac and Windows
+# Activate ssh to sign commits in Mac and Windows
 
 -----
 
