@@ -76,5 +76,3 @@ In your terminal run the next command
 ````
 
 10. In GitHub WebPage, go to your presonal settings -> access -> SSH and GPG keys -> New SSH Key. In this step type a title like "MacBook Yape" and paste your key. 
-
-11. Install GPG 
