@@ -3,7 +3,6 @@
 -----
 
 ## About 
-
 ## How to install in Mac
 
 1. Install HomeBrew 
