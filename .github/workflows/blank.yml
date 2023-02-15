@@ -9,17 +9,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
-
-      - name: Overwrite file
-        uses: "testjuanpalma/repo-template@main"
-        with:
-          path: ci/test-output/out.js
-          write-mode: overwrite
-          contents: |
-            console.log('some contents')
-            
+      - uses: actions/checkout@v2
+      - name: Create report file
+        run: date +%s > report.txt    
       - name: Commit & Push
         run: |
           git config --global user.name 'Juan Guillermo Palma Ceron'
