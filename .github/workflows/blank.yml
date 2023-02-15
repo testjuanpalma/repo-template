@@ -21,9 +21,8 @@ jobs:
             console.log('some contents')
             
       - name: Commit & Push
-        uses: juanguipalma/push@v1.3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: main
-          force: true
-          message: 'Overwritten by Github Actions - ${date}'
+        run: |
+          git config --global user.name 'Juan Guillermo Palma Ceron'
+          git config --global user.email 'juanpalma@bcp.com.pe'
+          git commit -am "Automated report"
+          git push
