@@ -21,7 +21,7 @@ jobs:
             console.log('some contents')
             
       - name: Commit & Push
-        uses: Andro999b/push@v1.3
+        uses: juanguipalma/push@v1.3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: main
