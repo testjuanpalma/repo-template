@@ -16,5 +16,6 @@ jobs:
         run: |
           git config --global user.name 'Juan Guillermo Palma Ceron'
           git config --global user.email 'juanpalma@bcp.com.pe'
-          git commit -am "Automated report"
+          git add .
+          git commit -m "Automated report"
           git push
