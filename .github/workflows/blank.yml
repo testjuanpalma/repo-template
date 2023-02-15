@@ -21,10 +21,6 @@ jobs:
           echo "Preparing version ${VERSION}"
           echo "__version__ = \"${VERSION}\"" > __version__.py
           echo "##[set-output name=version;]$(echo ${VERSION})"
-      - uses: vemel/update-changelog@0.0.1
-        id: changelog
-        with:
-          version: ${{ steps.version.outputs.version }}
       - name: Commit & Push
         run: |
           git config --global user.name 'Juan Guillermo Palma Ceron'
