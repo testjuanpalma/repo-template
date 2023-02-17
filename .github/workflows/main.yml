@@ -11,8 +11,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-        with:
-          persist-credentials: false
       - name: Create report file
         run: date +%s > report.txt
       - name: Update version
@@ -24,7 +22,6 @@ jobs:
           echo "Preparing version ${VERSION}"
           echo "__version__ = \"${VERSION}\"" > __version__.py
           echo "##[set-output name=version;]$(echo ${VERSION})"
-          echo "${{ secrets.BOT_GPG_PRIVATE_KEY }}"
       - name: Commit & Push
         run: |
           git config --global user.name 'Juan Guillermo Palma Ceron'
