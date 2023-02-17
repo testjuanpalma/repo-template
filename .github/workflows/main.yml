@@ -26,6 +26,8 @@ jobs:
           echo "##[set-output name=version;]$(echo ${VERSION})"
       - name: Commit & Push
         run: |
+          git config --global user.email 'juanpalma@bcp.com.pe'
+          git config --global user.name 'Juan Guillermo Palma Ceron'
           git add .
           git commit -m "Automated report"
           git push
