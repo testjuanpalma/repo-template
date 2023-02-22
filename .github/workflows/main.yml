@@ -40,6 +40,7 @@ jobs:
           texttest: ${{ secrets.TEST_SECRET }}
       - name: Commit & Push
         run: |
+          git add .
           git commit -m "Automated report"
           env:
             GITHUB_TOKEN: ${{ secrets.OSLASH_BOT_GITHUB_TOKEN }}
