@@ -18,9 +18,8 @@ jobs:
         uses: crazy-max/ghaction-import-gpg@v4
         with:
           gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
-          passphrase: ${{ secrets.GPG_PASSPHRASE }}
+          passphrase: ""
       - name: Create report file
         run: date +%s > report.txt
       - name: Commit & Push
         run: git commit -m "this is bot" report.txt
-          git push
