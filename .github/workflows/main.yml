@@ -11,8 +11,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-        with:
-          persist-credentials: false
       - name: Create report file
         run: date +%s > report.txt
       - name: Update version
