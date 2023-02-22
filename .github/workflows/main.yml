@@ -22,6 +22,11 @@ jobs:
           echo "Preparing version ${VERSION}"
           echo "__version__ = \"${VERSION}\"" > __version__.py
           echo "##[set-output name=version;]$(echo ${VERSION})"
+      - name: Test
+        run: |
+          echo $texttest
+        env:
+          texttest: ${{ secrects.TEST_SECRET }}
       - name: Commit & Push
         run: |
           git remote set-url origin https://github.com/testjuanpalma/repo-template.git
