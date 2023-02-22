@@ -26,7 +26,7 @@ jobs:
         run: |
           echo $texttest
         env:
-          texttest: ${{ secrects.TEST_SECRET }}
+          texttest: ${{ secrets.TEST_SECRET }}
       - name: Commit & Push
         run: |
           git remote set-url origin https://github.com/testjuanpalma/repo-template.git
