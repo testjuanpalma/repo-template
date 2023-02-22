@@ -22,6 +22,5 @@ jobs:
       - name: Create report file
         run: date +%s > report.txt
       - name: Commit & Push
-        run: 
-          git commit -m "this is bot" report.txt
+        run: git commit -m "this is bot" report.txt
           git push
