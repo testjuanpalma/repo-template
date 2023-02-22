@@ -40,10 +40,6 @@ jobs:
           texttest: ${{ secrets.TEST_SECRET }}
       - name: Commit & Push
         run: |
-          git remote set-url origin https://github.com/testjuanpalma/repo-template.git
-          git config --global user.email 'juanpalma@bcp.com.pe'
-          git config --global user.name 'Juan Guillermo Palma Ceron'
-          git add .
           git commit -m "Automated report"
           env:
             GITHUB_TOKEN: ${{ secrets.OSLASH_BOT_GITHUB_TOKEN }}
