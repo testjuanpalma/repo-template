@@ -11,6 +11,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+        with:
+          persist-credentials: false
       - name: Import bot's GPG key for signing commits
         id: import-gpg
         uses: crazy-max/ghaction-import-gpg@v4
@@ -38,7 +40,7 @@ jobs:
           texttest: ${{ secrets.TEST_SECRET }}
       - name: Commit & Push
         run: |
-          git config --global commit.gpgsign true
+          git config commit.gpgsign true
           git add .
           git commit -m "Automated report"
           env:
