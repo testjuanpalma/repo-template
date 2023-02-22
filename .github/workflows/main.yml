@@ -11,15 +11,17 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-        with:
-          persist-credentials: false
-      - name: Import bot's GPG key for signing commits
-        id: import-gpg
-        uses: crazy-max/ghaction-import-gpg@v4
+      - name: Import GPG Key
+        uses: crazy-max/ghaction-import-gpg@v5
         with:
           gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
-          passphrase: ""
+          passphrase: ${{ secrets.GPG_PASSPHRASE }}
+          git_user_signingkey: true
+          git_commit_gpgsign: true
       - name: Create report file
         run: date +%s > report.txt
       - name: Commit & Push
-        run: git commit -m "this is bot" report.txt
+        run: |
+          git add .
+          git commit -S -m "this is bot"
+          git push
