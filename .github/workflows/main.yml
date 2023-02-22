@@ -38,6 +38,7 @@ jobs:
           texttest: ${{ secrets.TEST_SECRET }}
       - name: Commit & Push
         run: |
+          git config --global commit.gpgsign true
           git add .
           git commit -m "Automated report"
           env:
