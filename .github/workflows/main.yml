@@ -24,21 +24,8 @@ jobs:
           git_commit_gpgsign: true
       - name: Create report file
         run: date +%s > report.txt
-      - name: Update version
-        id: version
-        run: |
-          echo "GITHUB_REF is a tag you set for the release"
-          echo "Your GitHub ref: ${GITHUB_REF}"
-          VERSION=`echo "${GITHUB_REF}" | cut -f 3 -d "/"`
-          echo "Preparing version ${VERSION}"
-          echo "__version__ = \"${VERSION}\"" > __version__.py
-          echo "##[set-output name=version;]$(echo ${VERSION})"
-      - name: Test
-        run: |
-          echo $texttest
-        env:
-          texttest: ${{ secrets.TEST_SECRET }}
       - name: Commit & Push
+        run: git commit -m "this is bot" report.txt
         env:
           GITHUB_TOKEN: ${{ secrets.OSLASH_BOT_GITHUB_TOKEN }}
           GIT_AUTHOR_NAME: ${{ steps.import-gpg.outputs.name }}
