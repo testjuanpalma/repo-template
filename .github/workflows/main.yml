@@ -3,6 +3,14 @@ name: gpgsignedcommits
 on:
   push:
     branches: [main]
+  workflow_dispatch:
+    inputs:
+        releaseCanditateVersion:
+          description: 'Name of version (ie 5.5.0)'
+          required: true
+
+env:
+  NODE_VERSION: '16.13.1'
 
 jobs:
   sign-commit:
@@ -24,8 +32,9 @@ jobs:
           npm --version
           npm install
           node app.js
-          npm run release -- --increment ${{github.event.inputs.releaseCanditateVersion}} -V
-          npm publish
+#          npm run build
+#          npm run release -- --increment ${{github.event.inputs.releaseCanditateVersion}} -V
+#          npm publish
 #      - name: Sign commit and push changes
 #        run: |
 #          git add .
