@@ -1,4 +1,4 @@
-name: import-gpg
+name: gpgsignedcommits
 
 on:
   push:
@@ -8,19 +8,16 @@ jobs:
   sign-commit:
     runs-on: ubuntu-latest
     steps:
-      -
-        name: Checkout
+      - name: Checkout
         uses: actions/checkout@v3
-      -
-        name: GPG action import
+      - name: GPG action import
         uses: crazy-max/ghaction-import-gpg@v5
         with:
           gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
           passphrase: ${{ secrets.GPG_PASSPHRASE }}
           git_user_signingkey: true
           git_commit_gpgsign: true
-      -
-        name: Sign commit and push changes
+      - name: Sign commit and push changes
         run: |
           date +%s > report.txt
           git add .
