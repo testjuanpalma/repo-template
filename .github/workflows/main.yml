@@ -22,7 +22,7 @@ jobs:
       -
         name: Sign commit and push changes
         run: |
-          echo food > bar.txt
+          date +%s > report.txt
           git add .
           git commit -S -m "This commit is signed!"
           git push
