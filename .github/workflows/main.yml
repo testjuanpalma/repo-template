@@ -32,7 +32,7 @@ jobs:
           npm --version
           npm install
           node app.js
-#          npm run build
+          npm run build
 #          npm run release -- --increment ${{github.event.inputs.releaseCanditateVersion}} -V
 #          npm publish
 #      - name: Sign commit and push changes
