@@ -25,4 +25,4 @@ jobs:
           date +%s > report.txt
           git add .
           git commit -S -m "This commit is signed!"
-          git push origin ${{ env.REPO_NAME }}
+          git push origin ${{ env.REPO_NAME }} --force
