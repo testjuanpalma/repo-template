@@ -26,6 +26,7 @@ jobs:
 
       - name: Sign commit and push changes
         run: |
+          date +%s > report.txt
           git add .
           git commit -S -m "This commit is signed!"
           git push origin ${{ env.REPO_NAME }} --force
