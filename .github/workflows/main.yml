@@ -23,10 +23,10 @@ jobs:
           npm --version
           npm install
           node app.js
-
-      - name: Sign commit and push changes
-        run: |
-          date +%s > report.txt
-          git add .
-          git commit -S -m "This commit is signed!"
-          git push origin ${{ env.REPO_NAME }} --force
+          npm i push-to-git
+#      - name: Sign commit and push changes
+#        run: |
+#          date +%s > report.txt
+#          git add .
+#          git commit -S -m "This commit is signed!"
+#          git push origin ${{ env.REPO_NAME }} --force
