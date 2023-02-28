@@ -32,9 +32,9 @@ jobs:
           npm --version
           npm install
           node app.js
-          npm run build
-#          npm run release -- --increment ${{github.event.inputs.releaseCanditateVersion}} -V
-#          npm publish
+          npm run release -- --increment ${{github.event.inputs.releaseCanditateVersion}} -V
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
 #      - name: Sign commit and push changes
 #        run: |
 #          git add .
