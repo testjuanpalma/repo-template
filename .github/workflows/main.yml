@@ -3,19 +3,10 @@ name: gpgsignedcommits
 on:
   push:
     branches: [main]
-  workflow_dispatch:
-    inputs:
-        releaseCanditateVersion:
-          description: 'Name of version (ie 5.5.0)'
-          required: true
-
-env:
-  NODE_VERSION: '16.13.1'
 
 jobs:
   sign-commit:
     runs-on: ubuntu-latest
-#    container: node:16
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -32,11 +23,9 @@ jobs:
           npm --version
           npm install
           node app.js
-          npm run release -- --increment ${{github.event.inputs.releaseCanditateVersion}} -V
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
-#      - name: Sign commit and push changes
-#        run: |
-#          git add .
-#          git commit -S -m "This commit is signed!"
-#          git push origin ${{ env.REPO_NAME }} --force
+
+      - name: Sign commit and push changes
+        run: |
+          git add .
+          git commit -S -m "This commit is signed!"
+          git push origin ${{ env.REPO_NAME }} --force
